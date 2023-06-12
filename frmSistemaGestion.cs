@@ -37,5 +37,11 @@ namespace ANINO_HNOS
         private void frmSistemaGestion_Load(object sender, EventArgs e)
         {
         }
+
+        private void cargarVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCargarVenta Ventana = new frmCargarVenta();
+            Ventana.ShowDialog();
+        }
     }
 }

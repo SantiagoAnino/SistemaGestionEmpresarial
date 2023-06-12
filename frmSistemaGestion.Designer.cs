@@ -122,6 +122,7 @@
             this.cargarVentaToolStripMenuItem.Name = "cargarVentaToolStripMenuItem";
             this.cargarVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarVentaToolStripMenuItem.Text = "Cargar Venta...";
+            this.cargarVentaToolStripMenuItem.Click += new System.EventHandler(this.cargarVentaToolStripMenuItem_Click);
             // 
             // consultarVentaToolStripMenuItem
             // 

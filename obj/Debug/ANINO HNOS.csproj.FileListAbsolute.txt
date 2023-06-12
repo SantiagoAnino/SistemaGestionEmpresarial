@@ -24,3 +24,4 @@ C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANT
 C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.CoreCompileInputs.cache
 C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.exe
 C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.pdb
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.frmCargarVenta.resources

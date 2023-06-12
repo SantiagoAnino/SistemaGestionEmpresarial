@@ -7,7 +7,6 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 
 namespace ANINO_HNOS
 {
@@ -25,7 +24,7 @@ namespace ANINO_HNOS
         private String ciu;
         private String prov;
         private String tel;
-        private string cuit;
+        private String cuit;
         private String mail;
 
         public string Nombre
@@ -139,6 +138,31 @@ namespace ANINO_HNOS
                     Archivo.WriteLine(fila["Email"]);
                 }
                 Archivo.Close();
+                Conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        public void Listar(ComboBox Combo)
+        {
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.TableDirect;
+                Comando.CommandText = Tabla;
+
+                Adaptador = new OleDbDataAdapter(Comando);
+                DataSet DS = new DataSet();
+                Adaptador.Fill(DS, Tabla);
+
+                Combo.DataSource = DS.Tables[Tabla];
+                Combo.DisplayMember = "Nombre";
+                Combo.ValueMember = "IdCliente";
                 Conexion.Close();
             }
             catch (Exception e)
