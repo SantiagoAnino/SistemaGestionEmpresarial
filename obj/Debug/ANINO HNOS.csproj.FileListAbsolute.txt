@@ -1,0 +1,26 @@
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\bin\Debug\ANINO HNOS.exe.config
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\bin\Debug\ANINO HNOS.exe
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\bin\Debug\ANINO HNOS.pdb
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.AssemblyReference.cache
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.SuggestedBindingRedirects.cache
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.frmNuevoCliente.resources
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.frmSistemaGestion.resources
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.Properties.Resources.resources
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.GenerateResource.cache
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.CoreCompileInputs.cache
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.exe
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.pdb
+C:\Users\anino\OneDrive\Escritorio\PROGRA\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.frmAcercaDelDesarrollador.resources
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\bin\Debug\ANINO HNOS.exe.config
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\bin\Debug\ANINO HNOS.exe
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\bin\Debug\ANINO HNOS.pdb
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.AssemblyReference.cache
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.SuggestedBindingRedirects.cache
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.frmAcercaDelDesarrollador.resources
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.frmNuevoCliente.resources
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.frmSistemaGestion.resources
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO_HNOS.Properties.Resources.resources
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.GenerateResource.cache
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.csproj.CoreCompileInputs.cache
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.exe
+C:\Users\anino\OneDrive\Escritorio\IES21\AÑO 2 SEM. 1\PRACTICA PROFESIONALIZANTE\ANINO HNOS\obj\Debug\ANINO HNOS.pdb

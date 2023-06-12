@@ -1,0 +1,8 @@
+﻿Listado De Clientes
+
+IdCliente;Nombre;Domicilio;Ciudad;Provincia;CUIT;Telefono;Email
+1;ANINO SANTIAGO VICTOR;Corrientes 96;Rio Cuarto;Cordoba;20066556329;4647027;aninosantiago@hotmail.com
+2;ANINO HNOS.;Corrientes 96;Rio Cuarto;Cordoba;30710592868;4647027;aninosantiago@hotmail.com
+3;TALANO HERMANOS SRL ;Maipú 1751;Rio Cuarto;Cordoba;30709537950;3584650890;virginiamarcos@talanohermanos.com.ar
+4;DeCampoaCampo (Genta);San Martin 2653 Piso 1;Rio Cuarto;Cordoba;30526554562;3584369114;gortiz@decampoacampo.com
+5;JAMES & SON ARGENTINA SA;RP55;Balcarce;Buenos Aires;33692282529;3585160420;mmartinez@james-son.com.ar
