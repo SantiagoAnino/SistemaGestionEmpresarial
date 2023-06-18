@@ -170,5 +170,38 @@ namespace ANINO_HNOS
                 MessageBox.Show(e.ToString());
             }
         }
+
+        public String Buscar(Int32 cliente)
+        {
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.TableDirect;
+                Comando.CommandText = Tabla;
+                OleDbDataReader DR = Comando.ExecuteReader();
+                String Resultado = "";
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        if (DR.GetInt32(0) == cliente)
+                        {
+                            Resultado = DR.GetString(1);
+                        }
+                    }
+                }
+                Conexion.Close();
+                return Resultado;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return "";
+            }
+        }
     }
 }

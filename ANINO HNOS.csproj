@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clientes.cs" />
+    <Compile Include="DetalleVenta.cs" />
     <Compile Include="frmAcercaDelDesarrollador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +87,10 @@
     <Compile Include="frmSistemaGestion.Designer.cs">
       <DependentUpon>frmSistemaGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnidadesDeNegocio.cs" />
     <Compile Include="Ventas.cs" />
     <EmbeddedResource Include="frmAcercaDelDesarrollador.resx">
       <DependentUpon>frmAcercaDelDesarrollador.cs</DependentUpon>
