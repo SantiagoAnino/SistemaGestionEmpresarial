@@ -43,6 +43,7 @@ namespace ANINO_HNOS
             txtPrecio.Enabled = true;
             cmbIva.Enabled = true;
             cmbProducto.Enabled = true;
+            btnNuevaVenta.Enabled = true;
         }
 
         private void frmCargarVenta_Load(object sender, EventArgs e)
@@ -68,18 +69,16 @@ namespace ANINO_HNOS
             detalleventa = new DetalleVenta(); // Cambio aquí
 
             detalleventa.IdProducto = Convert.ToInt32(cmbProducto.SelectedValue);
-            detalleventa.Cantidad = Convert.ToDecimal(txtCantidad.Text);
-            detalleventa.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
-            detalleventa.Precio = detalleventa.PrecioUnitario * detalleventa.Cantidad; // Corrección del cálculo del precio
-            detalleventa.IVA = 0;
-
-            if (cmbIva.SelectedIndex == 1)
+            detalleventa.Cantidad = Convert.ToDouble(txtCantidad.Text);
+            detalleventa.PrecioUnitario = Convert.ToDouble(txtPrecio.Text);
+            detalleventa.Precio = detalleventa.PrecioUnitario * detalleventa.Cantidad; 
+            if (cmbIva.SelectedIndex == 2)
             {
-                detalleventa.IVA = detalleventa.Precio * 0.21m;
+                detalleventa.IVA = Convert.ToDouble(txtCantidad.Text)* Convert.ToDouble(txtPrecio.Text) / 100*21 ;
             }
-            else if (cmbIva.SelectedIndex == 2)
+            else if (cmbIva.SelectedIndex == 1)
             {
-                detalleventa.IVA = detalleventa.Precio * 0.105m;
+                detalleventa.IVA = Convert.ToDouble(txtCantidad.Text) * Convert.ToDouble(txtPrecio.Text) / 1000*105;
             }
 
             detalleventa.Subtotal = detalleventa.Precio + detalleventa.IVA;
@@ -87,7 +86,7 @@ namespace ANINO_HNOS
 
 
             ventas.Listar(dgvDetalle, Convert.ToInt32(lblIdVenta.Text));
-            lblTotal.Text = ventas.Total.ToString();
+            lblTotal.Text = ventas.Total.ToString("C");
             cmbProducto.SelectedIndex = -1;
             txtCantidad.Text = "";
             txtPrecio.Text = "";
@@ -133,6 +132,9 @@ namespace ANINO_HNOS
             txtPrecio.Enabled = false;
             btnAgregar.Enabled=false;
             dgvDetalle.Rows.Clear();
+            lblTotal.Text = "";
+            ventas.Total = 0;
+            btnNuevaVenta.Enabled = false;
         }
     }
 }

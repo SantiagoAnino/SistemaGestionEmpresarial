@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpDetalleVenta = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblT = new System.Windows.Forms.Label();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.lblUnidadDeNegocio = new System.Windows.Forms.Label();
+            this.cmbUnidad = new System.Windows.Forms.ComboBox();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnNuevaBusqueda = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.IdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,12 +53,6 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblUnidadDeNegocio = new System.Windows.Forms.Label();
-            this.cmbUnidad = new System.Windows.Forms.ComboBox();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnNuevaBusqueda = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.grpDetalleVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +106,61 @@
             this.dgvDetalle.Location = new System.Drawing.Point(6, 19);
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.Size = new System.Drawing.Size(1038, 353);
-            this.dgvDetalle.TabIndex = 0;
+            this.dgvDetalle.TabIndex = 4;
+            // 
+            // lblUnidadDeNegocio
+            // 
+            this.lblUnidadDeNegocio.AutoSize = true;
+            this.lblUnidadDeNegocio.Location = new System.Drawing.Point(12, 15);
+            this.lblUnidadDeNegocio.Name = "lblUnidadDeNegocio";
+            this.lblUnidadDeNegocio.Size = new System.Drawing.Size(102, 13);
+            this.lblUnidadDeNegocio.TabIndex = 12;
+            this.lblUnidadDeNegocio.Text = "Unidad de Negocio:";
+            // 
+            // cmbUnidad
+            // 
+            this.cmbUnidad.FormattingEnabled = true;
+            this.cmbUnidad.Location = new System.Drawing.Point(140, 12);
+            this.cmbUnidad.Name = "cmbUnidad";
+            this.cmbUnidad.Size = new System.Drawing.Size(121, 21);
+            this.cmbUnidad.TabIndex = 1;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(12, 45);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(40, 13);
+            this.lblFecha.TabIndex = 14;
+            this.lblFecha.Text = "Fecha:";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(140, 65);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(162, 27);
+            this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnNuevaBusqueda
+            // 
+            this.btnNuevaBusqueda.Location = new System.Drawing.Point(904, 513);
+            this.btnNuevaBusqueda.Name = "btnNuevaBusqueda";
+            this.btnNuevaBusqueda.Size = new System.Drawing.Size(162, 27);
+            this.btnNuevaBusqueda.TabIndex = 5;
+            this.btnNuevaBusqueda.Text = "Nueva Busqueda";
+            this.btnNuevaBusqueda.UseVisualStyleBackColor = true;
+            this.btnNuevaBusqueda.Click += new System.EventHandler(this.btnNuevaBusqueda_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(140, 39);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePicker1.TabIndex = 2;
             // 
             // IdVenta
             // 
@@ -135,97 +189,43 @@
             // 
             // Cantidad
             // 
-            dataGridViewCellStyle16.Format = "C2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
             // 
             // PrecioUnitario
             // 
-            dataGridViewCellStyle17.Format = "C2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle2;
             this.PrecioUnitario.HeaderText = "Precio Unitario";
             this.PrecioUnitario.Name = "PrecioUnitario";
             // 
             // Precio
             // 
-            dataGridViewCellStyle18.Format = "C2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle3;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
             // 
             // IVA
             // 
-            dataGridViewCellStyle19.Format = "C2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.IVA.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.IVA.DefaultCellStyle = dataGridViewCellStyle4;
             this.IVA.HeaderText = "IVA";
             this.IVA.Name = "IVA";
             // 
             // Subtotal
             // 
-            dataGridViewCellStyle20.Format = "C2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.Subtotal.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Subtotal.DefaultCellStyle = dataGridViewCellStyle5;
             this.Subtotal.HeaderText = "Subtotal";
             this.Subtotal.Name = "Subtotal";
-            // 
-            // lblUnidadDeNegocio
-            // 
-            this.lblUnidadDeNegocio.AutoSize = true;
-            this.lblUnidadDeNegocio.Location = new System.Drawing.Point(12, 15);
-            this.lblUnidadDeNegocio.Name = "lblUnidadDeNegocio";
-            this.lblUnidadDeNegocio.Size = new System.Drawing.Size(102, 13);
-            this.lblUnidadDeNegocio.TabIndex = 12;
-            this.lblUnidadDeNegocio.Text = "Unidad de Negocio:";
-            // 
-            // cmbUnidad
-            // 
-            this.cmbUnidad.FormattingEnabled = true;
-            this.cmbUnidad.Location = new System.Drawing.Point(140, 12);
-            this.cmbUnidad.Name = "cmbUnidad";
-            this.cmbUnidad.Size = new System.Drawing.Size(121, 21);
-            this.cmbUnidad.TabIndex = 13;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(12, 45);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(40, 13);
-            this.lblFecha.TabIndex = 14;
-            this.lblFecha.Text = "Fecha:";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(140, 65);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(162, 27);
-            this.btnBuscar.TabIndex = 16;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnNuevaBusqueda
-            // 
-            this.btnNuevaBusqueda.Location = new System.Drawing.Point(904, 513);
-            this.btnNuevaBusqueda.Name = "btnNuevaBusqueda";
-            this.btnNuevaBusqueda.Size = new System.Drawing.Size(162, 27);
-            this.btnNuevaBusqueda.TabIndex = 17;
-            this.btnNuevaBusqueda.Text = "NuevaBusqueda";
-            this.btnNuevaBusqueda.UseVisualStyleBackColor = true;
-            this.btnNuevaBusqueda.Click += new System.EventHandler(this.btnNuevaBusqueda_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(140, 39);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker1.TabIndex = 18;
             // 
             // frmConsultaVentas
             // 
@@ -256,6 +256,12 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblT;
         private System.Windows.Forms.DataGridView dgvDetalle;
+        private System.Windows.Forms.Label lblUnidadDeNegocio;
+        private System.Windows.Forms.ComboBox cmbUnidad;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnNuevaBusqueda;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
@@ -266,11 +272,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn IVA;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
-        private System.Windows.Forms.Label lblUnidadDeNegocio;
-        private System.Windows.Forms.ComboBox cmbUnidad;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnNuevaBusqueda;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

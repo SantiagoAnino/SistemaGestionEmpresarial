@@ -1,7 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//Agregamos tres espacios de nombre
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ANINO_HNOS
 {
@@ -212,14 +218,15 @@ namespace ANINO_HNOS
                 while (DR.Read())
                 {   
                     DetalleVenta detalle = new DetalleVenta();
-                    nombreCli = cli.Buscar(DR.GetInt32(2));
-                    nombreUni = uni.Buscar(DR.GetInt32(3));
+
                     DataTable tablaDetalle = detalleVenta.ObtenerDetalleVentas(DR.GetInt32(0));
 
                     if (DR.GetInt32(3) == IdUnidad && DR.GetDateTime(1).Date == Fecha.Date)
                     {
                         foreach (DataRow filaDetalle in tablaDetalle.Rows)
                         {
+                            nombreCli = cli.Buscar(DR.GetInt32(2));
+                            nombreUni = uni.Buscar(DR.GetInt32(3));
                             Decimal cantidad = Convert.ToDecimal(filaDetalle["Cantidad"]);
                             Decimal PrecioUnitario = Convert.ToDecimal(filaDetalle["Precio Unitario"]);
                             Decimal Precio = Convert.ToDecimal(filaDetalle["Precio"]);

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblUnidad = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
@@ -49,6 +49,14 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblT = new System.Windows.Forms.Label();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.grpAgregarProducto = new System.Windows.Forms.GroupBox();
+            this.lvlIva = new System.Windows.Forms.Label();
+            this.cmbIva = new System.Windows.Forms.ComboBox();
+            this.lblNV = new System.Windows.Forms.Label();
+            this.lblIdVenta = new System.Windows.Forms.Label();
+            this.btnGenerarVenta = new System.Windows.Forms.Button();
+            this.btnNuevaVenta = new System.Windows.Forms.Button();
             this.IdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,14 +67,6 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.grpAgregarProducto = new System.Windows.Forms.GroupBox();
-            this.lvlIva = new System.Windows.Forms.Label();
-            this.cmbIva = new System.Windows.Forms.ComboBox();
-            this.lblNV = new System.Windows.Forms.Label();
-            this.lblIdVenta = new System.Windows.Forms.Label();
-            this.btnGenerarVenta = new System.Windows.Forms.Button();
-            this.btnNuevaVenta = new System.Windows.Forms.Button();
             this.grpDetalleVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.grpAgregarProducto.SuspendLayout();
@@ -122,6 +122,7 @@
             this.cmbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProducto.Enabled = false;
             this.cmbProducto.FormattingEnabled = true;
+            this.cmbProducto.ItemHeight = 13;
             this.cmbProducto.Items.AddRange(new object[] {
             "Excento",
             "10.5%",
@@ -129,7 +130,7 @@
             this.cmbProducto.Location = new System.Drawing.Point(112, 21);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(200, 21);
-            this.cmbProducto.TabIndex = 3;
+            this.cmbProducto.TabIndex = 5;
             this.cmbProducto.SelectedIndexChanged += new System.EventHandler(this.cmbProducto_SelectedIndexChanged);
             // 
             // dateTimePicker1
@@ -138,7 +139,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(118, 61);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // lblFecha
             // 
@@ -173,7 +174,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(64, 48);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
-            this.txtCantidad.TabIndex = 4;
+            this.txtCantidad.TabIndex = 6;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
             // txtPrecio
@@ -182,7 +183,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(216, 48);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecio.TabIndex = 5;
+            this.txtPrecio.TabIndex = 7;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // grpDetalleVenta
@@ -234,72 +235,7 @@
             this.dgvDetalle.Location = new System.Drawing.Point(6, 19);
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.Size = new System.Drawing.Size(1038, 334);
-            this.dgvDetalle.TabIndex = 0;
-            // 
-            // IdVenta
-            // 
-            this.IdVenta.HeaderText = "IdVenta";
-            this.IdVenta.Name = "IdVenta";
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            // 
-            // Unidad
-            // 
-            this.Unidad.HeaderText = "Unidad";
-            this.Unidad.Name = "Unidad";
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            // 
-            // Cantidad
-            // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // PrecioUnitario
-            // 
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle7;
-            this.PrecioUnitario.HeaderText = "Precio Unitario";
-            this.PrecioUnitario.Name = "PrecioUnitario";
-            // 
-            // Precio
-            // 
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // IVA
-            // 
-            dataGridViewCellStyle9.Format = "C2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.IVA.DefaultCellStyle = dataGridViewCellStyle9;
-            this.IVA.HeaderText = "IVA";
-            this.IVA.Name = "IVA";
-            // 
-            // Subtotal
-            // 
-            dataGridViewCellStyle10.Format = "C2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Subtotal.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
+            this.dgvDetalle.TabIndex = 10;
             // 
             // btnAgregar
             // 
@@ -307,7 +243,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(565, 70);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(151, 31);
-            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -346,10 +282,11 @@
             this.cmbIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIva.Enabled = false;
             this.cmbIva.FormattingEnabled = true;
+            this.cmbIva.ItemHeight = 13;
             this.cmbIva.Location = new System.Drawing.Point(412, 21);
             this.cmbIva.Name = "cmbIva";
             this.cmbIva.Size = new System.Drawing.Size(121, 21);
-            this.cmbIva.TabIndex = 14;
+            this.cmbIva.TabIndex = 8;
             this.cmbIva.SelectedIndexChanged += new System.EventHandler(this.cmbIva_SelectedIndexChanged);
             // 
             // lblNV
@@ -377,20 +314,86 @@
             this.btnGenerarVenta.Location = new System.Drawing.Point(167, 86);
             this.btnGenerarVenta.Name = "btnGenerarVenta";
             this.btnGenerarVenta.Size = new System.Drawing.Size(151, 31);
-            this.btnGenerarVenta.TabIndex = 15;
+            this.btnGenerarVenta.TabIndex = 4;
             this.btnGenerarVenta.Text = "Generar Venta";
             this.btnGenerarVenta.UseVisualStyleBackColor = true;
             this.btnGenerarVenta.Click += new System.EventHandler(this.btnGenerarVenta_Click);
             // 
             // btnNuevaVenta
             // 
+            this.btnNuevaVenta.Enabled = false;
             this.btnNuevaVenta.Location = new System.Drawing.Point(899, 513);
             this.btnNuevaVenta.Name = "btnNuevaVenta";
             this.btnNuevaVenta.Size = new System.Drawing.Size(151, 31);
-            this.btnNuevaVenta.TabIndex = 16;
+            this.btnNuevaVenta.TabIndex = 11;
             this.btnNuevaVenta.Text = "Nueva Venta";
             this.btnNuevaVenta.UseVisualStyleBackColor = true;
             this.btnNuevaVenta.Click += new System.EventHandler(this.btnNuevaVenta_Click);
+            // 
+            // IdVenta
+            // 
+            this.IdVenta.HeaderText = "IdVenta";
+            this.IdVenta.Name = "IdVenta";
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            // 
+            // Unidad
+            // 
+            this.Unidad.HeaderText = "Unidad";
+            this.Unidad.Name = "Unidad";
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            // 
+            // Cantidad
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // PrecioUnitario
+            // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PrecioUnitario.HeaderText = "Precio Unitario";
+            this.PrecioUnitario.Name = "PrecioUnitario";
+            // 
+            // Precio
+            // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // IVA
+            // 
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.IVA.DefaultCellStyle = dataGridViewCellStyle4;
+            this.IVA.HeaderText = "IVA";
+            this.IVA.Name = "IVA";
+            // 
+            // Subtotal
+            // 
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Subtotal.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
             // 
             // frmCargarVenta
             // 
@@ -446,6 +449,7 @@
         private System.Windows.Forms.Label lblNV;
         private System.Windows.Forms.Label lvlIva;
         private System.Windows.Forms.ComboBox cmbIva;
+        private System.Windows.Forms.Button btnNuevaVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
@@ -456,6 +460,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn IVA;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
-        private System.Windows.Forms.Button btnNuevaVenta;
     }
 }

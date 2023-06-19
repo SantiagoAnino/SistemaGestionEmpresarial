@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.OleDb;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//Agregamos tres espacios de nombre
+using System.Data;
+using System.Data.OleDb;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ANINO_HNOS
 {
@@ -21,11 +22,11 @@ namespace ANINO_HNOS
         private Int32 detVen;
         private Int32 ven;
         private Int32 pro;
-        private Decimal cant;
-        private Decimal preun;
-        private Decimal pre;  
-        private Decimal iva;
-        private Decimal sub;
+        private Double cant;
+        private Double preun;
+        private Double pre;  
+        private Double iva;
+        private Double sub;
         
         public Int32 IdDetalleVenta
         {
@@ -42,27 +43,27 @@ namespace ANINO_HNOS
             get { return pro; }
             set { pro = value; }
         }
-        public Decimal Cantidad
+        public Double Cantidad
         {
             get { return cant; }
             set { cant = value;  } 
         }
-        public Decimal Precio
+        public Double Precio
         {
             get { return pre; }
             set { pre = value; }
         }
-        public Decimal PrecioUnitario
+        public Double PrecioUnitario
         {
             get { return preun; }
             set { preun = value; } 
         }
-        public Decimal IVA
+        public Double IVA
         {
             get { return iva; }
             set { iva = value; }
         }
-        public Decimal Subtotal
+        public Double Subtotal
         {
             get { return sub; }
             set { sub = value; }

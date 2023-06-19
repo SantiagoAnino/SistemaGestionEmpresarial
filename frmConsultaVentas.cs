@@ -34,6 +34,8 @@ namespace ANINO_HNOS
             btnBuscar.Enabled = true;
             cmbUnidad.SelectedIndex = -1;
             dateTimePicker1.Value = DateTime.Now;
+            btnNuevaBusqueda.Enabled = false;
+            lblTotal.Text = "0";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace ANINO_HNOS
             ventas.IdUnidad = Convert.ToInt32(cmbUnidad.SelectedValue);
             ventas.Fecha = dateTimePicker1.Value;
             ventas.Buscar(dgvDetalle);
-            lblTotal.Text = Convert.ToString(ventas.Total);
+            lblTotal.Text = ventas.Total.ToString("C");
             cmbUnidad.Enabled = false;
             dateTimePicker1.Enabled = false;
             btnBuscar.Enabled = false;
