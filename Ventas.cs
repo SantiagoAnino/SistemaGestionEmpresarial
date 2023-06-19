@@ -191,6 +191,67 @@ namespace ANINO_HNOS
             }
         }
 
+        public void Buscar(DataGridView Grilla)
+        {
+            Conexion.ConnectionString = CadenaConexion;
+            Conexion.Open();
+            Comando.Connection = Conexion;
+            Comando.CommandType = CommandType.TableDirect;
+            Comando.CommandText = Tabla;
+            OleDbDataReader DR = Comando.ExecuteReader();
+            Clientes cli = new Clientes();
+            UnidadesDeNegocio uni = new UnidadesDeNegocio();
+            DetalleVenta detalleVenta = new DetalleVenta();
+
+
+            String nombreCli = "";
+            String nombreUni = "";
+            Decimal T = 0;
+            if (DR.HasRows)
+            {
+                while (DR.Read())
+                {   
+                    DetalleVenta detalle = new DetalleVenta();
+                    nombreCli = cli.Buscar(DR.GetInt32(2));
+                    nombreUni = uni.Buscar(DR.GetInt32(3));
+                    DataTable tablaDetalle = detalleVenta.ObtenerDetalleVentas(DR.GetInt32(0));
+
+                    if (DR.GetInt32(3) == IdUnidad && DR.GetDateTime(1).Date == Fecha.Date)
+                    {
+                        foreach (DataRow filaDetalle in tablaDetalle.Rows)
+                        {
+                            Decimal cantidad = Convert.ToDecimal(filaDetalle["Cantidad"]);
+                            Decimal PrecioUnitario = Convert.ToDecimal(filaDetalle["Precio Unitario"]);
+                            Decimal Precio = Convert.ToDecimal(filaDetalle["Precio"]);
+                            Decimal IVA = Convert.ToDecimal(filaDetalle["IVA"]);
+                            Decimal Subtotal = Convert.ToDecimal(filaDetalle["Subtotal"]);
+                            Int32 idProducto = Convert.ToInt32(filaDetalle["Producto"]);
+
+                            DataGridViewRow fila = Grilla.Rows[Grilla.Rows.Add()];
+                            fila.Cells["IdVenta"].Value = DR.GetInt32(0);
+                            fila.Cells["Fecha"].Value = DR.GetDateTime(1);
+                            fila.Cells["Cliente"].Value = nombreCli;
+                            fila.Cells["Unidad"].Value = nombreUni;
+
+                            Productos pro = new Productos();
+                            string nomPro = pro.Buscar(idProducto);
+
+                            fila.Cells["Producto"].Value = nomPro;
+                            fila.Cells["Cantidad"].Value = cantidad;
+                            fila.Cells["PrecioUnitario"].Value = PrecioUnitario;
+                            fila.Cells["Precio"].Value = Precio;
+                            fila.Cells["IVA"].Value = IVA;
+                            fila.Cells["Subtotal"].Value = Subtotal;
+                            T = Subtotal;
+                            total = total + T;
+                        }
+
+
+                    }
+                }
+            }
+        }
+
     }
 
 }

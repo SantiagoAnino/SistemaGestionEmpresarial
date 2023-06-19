@@ -75,6 +75,12 @@
     <Compile Include="frmCargarVenta.Designer.cs">
       <DependentUpon>frmCargarVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaVentas.Designer.cs">
+      <DependentUpon>frmConsultaVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCargarVenta.resx">
       <DependentUpon>frmCargarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaVentas.resx">
+      <DependentUpon>frmConsultaVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoCliente.resx">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>
