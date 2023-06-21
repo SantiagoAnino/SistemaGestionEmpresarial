@@ -39,6 +39,8 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.graficoDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +114,9 @@
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarVentaToolStripMenuItem,
-            this.consultarVentaToolStripMenuItem});
+            this.consultarVentaToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.graficoDeVentasToolStripMenuItem});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
@@ -130,6 +134,18 @@
             this.consultarVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultarVentaToolStripMenuItem.Text = "Consultar Venta...";
             this.consultarVentaToolStripMenuItem.Click += new System.EventHandler(this.consultarVentaToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            // 
+            // graficoDeVentasToolStripMenuItem
+            // 
+            this.graficoDeVentasToolStripMenuItem.Name = "graficoDeVentasToolStripMenuItem";
+            this.graficoDeVentasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.graficoDeVentasToolStripMenuItem.Text = "Grafico de Ventas...";
+            this.graficoDeVentasToolStripMenuItem.Click += new System.EventHandler(this.graficoDeVentasToolStripMenuItem_Click);
             // 
             // frmSistemaGestion
             // 
@@ -166,6 +182,8 @@
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem graficoDeVentasToolStripMenuItem;
     }
 }
 

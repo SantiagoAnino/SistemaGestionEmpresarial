@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,6 +82,12 @@
     <Compile Include="frmConsultaVentas.Designer.cs">
       <DependentUpon>frmConsultaVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGraficoVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficoVentas.Designer.cs">
+      <DependentUpon>frmGraficoVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaVentas.resx">
       <DependentUpon>frmConsultaVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficoVentas.resx">
+      <DependentUpon>frmGraficoVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoCliente.resx">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>

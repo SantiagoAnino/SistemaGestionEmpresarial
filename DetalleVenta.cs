@@ -136,6 +136,49 @@ namespace ANINO_HNOS
 
             return tablaFiltrada;
         }
+        public decimal ObtenerSumaSubtotalesPorFecha(List<int> listaIdVentas)
+        {
+            decimal sumaSubtotales = 0;
+
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.Text;
+
+                // Construir la consulta con los IdVentas
+                string consulta = "SELECT SUM(Subtotal) FROM DetalleVenta WHERE IdVenta IN (";
+                for (int i = 0; i < listaIdVentas.Count; i++)
+                {
+                    if (i > 0)
+                    {
+                        consulta += ",";
+                    }
+                    consulta += listaIdVentas[i].ToString();
+                }
+                consulta += ")";
+
+                Comando.CommandText = consulta;
+
+                // Obtener la suma de los subtotales
+                object resultado = Comando.ExecuteScalar();
+
+                if (resultado != DBNull.Value)
+                {
+                    sumaSubtotales = Convert.ToDecimal(resultado);
+                }
+
+                Conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+            return sumaSubtotales;
+        }
     }
 
 }

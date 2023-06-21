@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Windows.Forms.DataVisualization.Charting;
 namespace ANINO_HNOS
 {
     internal class Ventas
@@ -256,6 +256,153 @@ namespace ANINO_HNOS
 
                     }
                 }
+            }
+        }
+
+        private DateTime ObtenerFechaMinima()
+        {
+            DateTime fechaMinima = DateTime.MinValue;
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.Text;
+                Comando.CommandText = "SELECT MIN(Fecha) FROM Ventas";
+
+                object result = Comando.ExecuteScalar();
+                if ( result != null && result != DBNull.Value)
+                {
+                    fechaMinima = Convert.ToDateTime(result).Date;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                Conexion.Close();
+            }
+            return fechaMinima;
+        }
+        private DateTime ObtenerFechaMaxima()
+        {
+            DateTime fechaMaxima = DateTime.MinValue;
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.Text;
+                Comando.CommandText = "SELECT MAX(Fecha) FROM Ventas";
+
+                object result = Comando.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    fechaMaxima = Convert.ToDateTime(result).Date;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                Conexion.Close();
+            }
+            return fechaMaxima;
+        }
+    
+
+        public void Graficar(PictureBox pictureBox)
+        {
+            try
+            {
+                // Obtener todas las ventas dentro del rango de fechas
+                List<int> listaIdVentas = new List<int>();
+                DateTime min = ObtenerFechaMinima().Date;
+                DateTime max = ObtenerFechaMaxima().Date;
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.Text;
+                Comando.CommandText = "SELECT IdVenta FROM Ventas";
+
+                OleDbDataReader DRVentas = Comando.ExecuteReader();
+
+                while (DRVentas.Read())
+                {
+                    int idVenta = DRVentas.GetInt32(0);
+                    listaIdVentas.Add(idVenta);
+                }
+
+                Conexion.Close();
+
+                // Obtener la fecha mínima y máxima para utilizar en el gráfico
+                DateTime fechaMinima = min.Date;
+                DateTime fechaMaxima = max.Date;
+
+                // Crear una lista para almacenar las sumas de los subtotales por fecha
+                List<decimal> listaSumasSubtotales = new List<decimal>();
+
+                // Obtener la suma de los subtotales para cada fecha
+                foreach (int idVenta in listaIdVentas)
+                {
+                    // Obtener los detalles de venta para el IdVenta actual
+                    DetalleVenta detalleVenta = new DetalleVenta();
+                    DataTable tablaDetalle = detalleVenta.ObtenerDetalleVentas(idVenta);
+
+                    // Calcular la suma de los subtotales para la fecha actual
+                    decimal sumaSubtotales = 0;
+                    foreach (DataRow filaDetalle in tablaDetalle.Rows)
+                    {
+                        decimal subtotal = Convert.ToDecimal(filaDetalle["Subtotal"]);
+                        sumaSubtotales += subtotal;
+                    }
+
+                    // Agregar la suma de los subtotales a la lista
+                    listaSumasSubtotales.Add(sumaSubtotales);
+                }
+
+                // Crear el control de gráfico
+                Chart chart = new Chart();
+                chart.Size = pictureBox.Size;
+
+                // Configurar el tipo de gráfico
+                chart.Series.Clear();
+                chart.Series.Add("Suma de Subtotales");
+                chart.Series["Suma de Subtotales"].ChartType = SeriesChartType.Column;
+
+                chart.ChartAreas.Add("Area1"); // Agrega un área de gráfico con el nombre "Area1"
+
+                // Agregar los puntos de datos al gráfico
+                if (listaSumasSubtotales.Any())
+                {
+                    // Agregar los puntos de datos al gráfico
+                    for (int i = 0; i < listaSumasSubtotales.Count; i++)
+                    {
+                        chart.Series.Add("Serie" + i);
+                        chart.Series["Serie" + i].ChartType = SeriesChartType.Line;
+                        chart.Series["Suma de Subtotales"].Points.AddXY(i, listaSumasSubtotales[i]);
+
+                    }
+                }
+
+                chart.ChartAreas[0].AxisY.LabelStyle.Format = "C";
+
+
+
+                // Asociar el gráfico al PictureBox
+                pictureBox.Controls.Clear();
+                pictureBox.Controls.Add(chart);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
         }
 

@@ -49,5 +49,11 @@ namespace ANINO_HNOS
             frmConsultaVentas Ventana = new frmConsultaVentas();   
             Ventana.ShowDialog();
         }
+
+        private void graficoDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGraficoVentas Ventana = new frmGraficoVentas();
+            Ventana.ShowDialog();
+        }
     }
 }
