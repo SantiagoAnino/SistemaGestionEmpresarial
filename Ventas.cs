@@ -9,6 +9,7 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
+
 namespace ANINO_HNOS
 {
     internal class Ventas
@@ -315,58 +316,13 @@ namespace ANINO_HNOS
             }
             return fechaMaxima;
         }
-    
+
 
         public void Graficar(PictureBox pictureBox)
         {
             try
             {
-                // Obtener todas las ventas dentro del rango de fechas
-                List<int> listaIdVentas = new List<int>();
-                DateTime min = ObtenerFechaMinima().Date;
-                DateTime max = ObtenerFechaMaxima().Date;
-                Conexion.ConnectionString = CadenaConexion;
-                Conexion.Open();
-
-                Comando.Connection = Conexion;
-                Comando.CommandType = CommandType.Text;
-                Comando.CommandText = "SELECT IdVenta FROM Ventas";
-
-                OleDbDataReader DRVentas = Comando.ExecuteReader();
-
-                while (DRVentas.Read())
-                {
-                    int idVenta = DRVentas.GetInt32(0);
-                    listaIdVentas.Add(idVenta);
-                }
-
-                Conexion.Close();
-
-                // Obtener la fecha mínima y máxima para utilizar en el gráfico
-                DateTime fechaMinima = min.Date;
-                DateTime fechaMaxima = max.Date;
-
-                // Crear una lista para almacenar las sumas de los subtotales por fecha
-                List<decimal> listaSumasSubtotales = new List<decimal>();
-
-                // Obtener la suma de los subtotales para cada fecha
-                foreach (int idVenta in listaIdVentas)
-                {
-                    // Obtener los detalles de venta para el IdVenta actual
-                    DetalleVenta detalleVenta = new DetalleVenta();
-                    DataTable tablaDetalle = detalleVenta.ObtenerDetalleVentas(idVenta);
-
-                    // Calcular la suma de los subtotales para la fecha actual
-                    decimal sumaSubtotales = 0;
-                    foreach (DataRow filaDetalle in tablaDetalle.Rows)
-                    {
-                        decimal subtotal = Convert.ToDecimal(filaDetalle["Subtotal"]);
-                        sumaSubtotales += subtotal;
-                    }
-
-                    // Agregar la suma de los subtotales a la lista
-                    listaSumasSubtotales.Add(sumaSubtotales);
-                }
+                Dictionary<string, decimal> sumaPorFecha = OrdenarFecha();
 
                 // Crear el control de gráfico
                 Chart chart = new Chart();
@@ -380,21 +336,28 @@ namespace ANINO_HNOS
                 chart.ChartAreas.Add("Area1"); // Agrega un área de gráfico con el nombre "Area1"
 
                 // Agregar los puntos de datos al gráfico
-                if (listaSumasSubtotales.Any())
+                if (sumaPorFecha.Any())
                 {
-                    // Agregar los puntos de datos al gráfico
-                    for (int i = 0; i < listaSumasSubtotales.Count; i++)
+                    int index = 0;
+                    foreach (var kvp in sumaPorFecha)
                     {
-                        chart.Series.Add("Serie" + i);
-                        chart.Series["Serie" + i].ChartType = SeriesChartType.Line;
-                        chart.Series["Suma de Subtotales"].Points.AddXY(i, listaSumasSubtotales[i]);
+                        string fecha = kvp.Key;
+                        decimal sumaSubtotales = kvp.Value;
 
+                        // Agregar los puntos de datos al gráfico
+                        chart.Series["Suma de Subtotales"].Points.AddXY(fecha, sumaSubtotales);
+
+                        // Configurar el formato de etiquetas para el eje X
+                        chart.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
+                        chart.ChartAreas[0].AxisX.LabelStyle.Angle = 45;
+                        chart.ChartAreas[0].AxisX.Interval = 1;
+                        chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+
+                        index++;
                     }
                 }
 
                 chart.ChartAreas[0].AxisY.LabelStyle.Format = "C";
-
-
 
                 // Asociar el gráfico al PictureBox
                 pictureBox.Controls.Clear();
@@ -405,7 +368,62 @@ namespace ANINO_HNOS
                 MessageBox.Show(e.ToString());
             }
         }
+        public Dictionary<string, decimal> OrdenarFecha()
+        {
+            Dictionary<string, decimal> sumaPorFecha = new Dictionary<string, decimal>();
 
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.Text;
+                Comando.CommandText = "SELECT IdVenta, Fecha FROM Ventas ORDER BY Fecha";
+                OleDbDataReader DR = Comando.ExecuteReader();
+                DetalleVenta detalleVentas = new DetalleVenta();
+                if (DR.HasRows)
+                {
+                    List<int> listaIdVentas = new List<int>();
+                    DateTime fechaIndice = DateTime.MinValue;
+
+                    while (DR.Read())
+                    {
+                        int idVenta = DR.GetInt32(0);
+                        DateTime fechaRegistro = DR.GetDateTime(1).Date;
+
+                        if (fechaIndice != fechaRegistro)
+                        {
+                            if (listaIdVentas.Count > 0)
+                            {
+                                decimal sumaSubtotales = detalleVentas.ObtenerSumaSubtotalesPorFecha(listaIdVentas);
+                                sumaPorFecha.Add(fechaIndice.ToString("dd/MM/yyyy"), sumaSubtotales);
+                            }
+
+                            fechaIndice = fechaRegistro;
+                            listaIdVentas.Clear();
+                        }
+
+                        listaIdVentas.Add(idVenta);
+                    }
+
+                    if (listaIdVentas.Count > 0)
+                    {
+                        decimal sumaSubtotales = detalleVentas.ObtenerSumaSubtotalesPorFecha(listaIdVentas);
+                        sumaPorFecha.Add(fechaIndice.ToString("dd/MM/yyyy"), sumaSubtotales);
+                    }
+                }
+
+                Conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+            return sumaPorFecha;
+        }
+       
     }
 
 }

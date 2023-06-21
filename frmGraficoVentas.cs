@@ -22,5 +22,10 @@ namespace ANINO_HNOS
             Ventas ventas = new Ventas();
             ventas.Graficar(pctGrafico);
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
