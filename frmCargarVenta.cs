@@ -23,14 +23,12 @@ namespace ANINO_HNOS
 
         private void btnGenerarVenta_Click(object sender, EventArgs e)
         {
-            // Obtener los valores de cliente, unidad de negocio y fecha desde los controles en el formulario
-            Ventas ventas = new Ventas();
             ventas.IdCliente = Convert.ToInt32(cmbCliente.SelectedValue);
             ventas.IdUnidad = Convert.ToInt32(cmbUnidad.SelectedValue);
             ventas.Fecha = dateTimePicker1.Value;
             ventas.Agregar();
             int idventa = ventas.IdVenta;
-            // Restablecer los campos para agregar una nueva venta
+
             cmbCliente.SelectedIndex = -1;
             cmbCliente.Enabled = false;
             cmbUnidad.SelectedIndex = -1;
@@ -44,6 +42,7 @@ namespace ANINO_HNOS
             cmbIva.Enabled = true;
             cmbProducto.Enabled = true;
             btnNuevaVenta.Enabled = true;
+            cmbProducto.Focus();
         }
 
         private void frmCargarVenta_Load(object sender, EventArgs e)
@@ -91,6 +90,7 @@ namespace ANINO_HNOS
             txtCantidad.Text = "";
             txtPrecio.Text = "";
             btnAgregar.Enabled = false;
+            cmbProducto.Focus();
         }
         private void Controlar()
         {
@@ -135,6 +135,7 @@ namespace ANINO_HNOS
             lblTotal.Text = "";
             ventas.Total = 0;
             btnNuevaVenta.Enabled = false;
+            cmbCliente.Focus();
         }
     }
 }

@@ -338,7 +338,7 @@ namespace ANINO_HNOS
                 // Agregar los puntos de datos al gráfico
                 if (sumaPorFecha.Any())
                 {
-                    int index = 0;
+                    int i = 0;
                     foreach (var kvp in sumaPorFecha)
                     {
                         string fecha = kvp.Key;
@@ -352,8 +352,9 @@ namespace ANINO_HNOS
                         chart.ChartAreas[0].AxisX.LabelStyle.Angle = 45;
                         chart.ChartAreas[0].AxisX.Interval = 1;
                         chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                        
 
-                        index++;
+                        i++;
                     }
                 }
 

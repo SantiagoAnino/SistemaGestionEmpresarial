@@ -31,11 +31,14 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.pctGrafico = new System.Windows.Forms.PictureBox();
+            this.prtVentana = new System.Windows.Forms.PrintDialog();
+            this.prtDocumento = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.pctGrafico)).BeginInit();
             this.SuspendLayout();
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Enabled = false;
             this.btnImprimir.Location = new System.Drawing.Point(1159, 601);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
@@ -62,6 +65,14 @@
             this.pctGrafico.TabIndex = 2;
             this.pctGrafico.TabStop = false;
             // 
+            // prtVentana
+            // 
+            this.prtVentana.UseEXDialog = true;
+            // 
+            // prtDocumento
+            // 
+            this.prtDocumento.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prtDocumento_PrintPage);
+            // 
             // frmGraficoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -71,6 +82,7 @@
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.btnImprimir);
             this.Name = "frmGraficoVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grafico de Ventas";
             ((System.ComponentModel.ISupportInitialize)(this.pctGrafico)).EndInit();
             this.ResumeLayout(false);
@@ -82,5 +94,7 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.PictureBox pctGrafico;
+        private System.Windows.Forms.PrintDialog prtVentana;
+        private System.Drawing.Printing.PrintDocument prtDocumento;
     }
 }

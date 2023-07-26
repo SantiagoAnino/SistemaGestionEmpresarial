@@ -1,6 +1,7 @@
 ﻿Listado De Clientes
 
 IdCliente;Nombre;Domicilio;Ciudad;Provincia;CUIT;Telefono;Email
+6;LANCOUQUIS ALEXANDER MATIAS;Laprida 1798;Rio Cuarto;Cordoba;20406785794;3585410803;nn@nn.com
 1;ANINO SANTIAGO VICTOR;Corrientes 96;Rio Cuarto;Cordoba;20066556329;4647027;aninosantiago@hotmail.com
 2;ANINO HNOS.;Corrientes 96;Rio Cuarto;Cordoba;30710592868;4647027;aninosantiago@hotmail.com
 3;TALANO HERMANOS SRL ;Maipú 1751;Rio Cuarto;Cordoba;30709537950;3584650890;virginiamarcos@talanohermanos.com.ar

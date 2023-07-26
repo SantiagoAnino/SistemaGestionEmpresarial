@@ -37,12 +37,6 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblT = new System.Windows.Forms.Label();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.lblUnidadDeNegocio = new System.Windows.Forms.Label();
-            this.cmbUnidad = new System.Windows.Forms.ComboBox();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnNuevaBusqueda = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.IdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +47,12 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblUnidadDeNegocio = new System.Windows.Forms.Label();
+            this.cmbUnidad = new System.Windows.Forms.ComboBox();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnNuevaBusqueda = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.grpDetalleVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -107,60 +107,6 @@
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.Size = new System.Drawing.Size(1038, 353);
             this.dgvDetalle.TabIndex = 4;
-            // 
-            // lblUnidadDeNegocio
-            // 
-            this.lblUnidadDeNegocio.AutoSize = true;
-            this.lblUnidadDeNegocio.Location = new System.Drawing.Point(12, 15);
-            this.lblUnidadDeNegocio.Name = "lblUnidadDeNegocio";
-            this.lblUnidadDeNegocio.Size = new System.Drawing.Size(102, 13);
-            this.lblUnidadDeNegocio.TabIndex = 12;
-            this.lblUnidadDeNegocio.Text = "Unidad de Negocio:";
-            // 
-            // cmbUnidad
-            // 
-            this.cmbUnidad.FormattingEnabled = true;
-            this.cmbUnidad.Location = new System.Drawing.Point(140, 12);
-            this.cmbUnidad.Name = "cmbUnidad";
-            this.cmbUnidad.Size = new System.Drawing.Size(121, 21);
-            this.cmbUnidad.TabIndex = 1;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(12, 45);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(40, 13);
-            this.lblFecha.TabIndex = 14;
-            this.lblFecha.Text = "Fecha:";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(140, 65);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(162, 27);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnNuevaBusqueda
-            // 
-            this.btnNuevaBusqueda.Location = new System.Drawing.Point(904, 513);
-            this.btnNuevaBusqueda.Name = "btnNuevaBusqueda";
-            this.btnNuevaBusqueda.Size = new System.Drawing.Size(162, 27);
-            this.btnNuevaBusqueda.TabIndex = 5;
-            this.btnNuevaBusqueda.Text = "Nueva Busqueda";
-            this.btnNuevaBusqueda.UseVisualStyleBackColor = true;
-            this.btnNuevaBusqueda.Click += new System.EventHandler(this.btnNuevaBusqueda_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(140, 39);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker1.TabIndex = 2;
             // 
             // IdVenta
             // 
@@ -227,6 +173,60 @@
             this.Subtotal.HeaderText = "Subtotal";
             this.Subtotal.Name = "Subtotal";
             // 
+            // lblUnidadDeNegocio
+            // 
+            this.lblUnidadDeNegocio.AutoSize = true;
+            this.lblUnidadDeNegocio.Location = new System.Drawing.Point(12, 15);
+            this.lblUnidadDeNegocio.Name = "lblUnidadDeNegocio";
+            this.lblUnidadDeNegocio.Size = new System.Drawing.Size(102, 13);
+            this.lblUnidadDeNegocio.TabIndex = 12;
+            this.lblUnidadDeNegocio.Text = "Unidad de Negocio:";
+            // 
+            // cmbUnidad
+            // 
+            this.cmbUnidad.FormattingEnabled = true;
+            this.cmbUnidad.Location = new System.Drawing.Point(140, 12);
+            this.cmbUnidad.Name = "cmbUnidad";
+            this.cmbUnidad.Size = new System.Drawing.Size(121, 21);
+            this.cmbUnidad.TabIndex = 1;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(12, 45);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(40, 13);
+            this.lblFecha.TabIndex = 14;
+            this.lblFecha.Text = "Fecha:";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(140, 65);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(162, 27);
+            this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnNuevaBusqueda
+            // 
+            this.btnNuevaBusqueda.Location = new System.Drawing.Point(904, 513);
+            this.btnNuevaBusqueda.Name = "btnNuevaBusqueda";
+            this.btnNuevaBusqueda.Size = new System.Drawing.Size(162, 27);
+            this.btnNuevaBusqueda.TabIndex = 5;
+            this.btnNuevaBusqueda.Text = "Nueva Busqueda";
+            this.btnNuevaBusqueda.UseVisualStyleBackColor = true;
+            this.btnNuevaBusqueda.Click += new System.EventHandler(this.btnNuevaBusqueda_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(140, 39);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
             // frmConsultaVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +240,7 @@
             this.Controls.Add(this.lblUnidadDeNegocio);
             this.Controls.Add(this.grpDetalleVenta);
             this.Name = "frmConsultaVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Venta";
             this.Load += new System.EventHandler(this.frmConsultaVentas_Load);
             this.grpDetalleVenta.ResumeLayout(false);

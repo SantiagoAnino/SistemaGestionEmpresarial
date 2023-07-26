@@ -63,6 +63,16 @@ namespace ANINO_HNOS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2023_06_23_190518 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2023-06-23 190518", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DALLE_TORO {
             get {
                 object obj = ResourceManager.GetObject("DALLE TORO", resourceCulture);
